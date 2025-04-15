@@ -1,33 +1,77 @@
 {
-  "name": "101-app",
-  "version": "1.0.0",
-  "main": "index.js",
+  "name": "todoapp",
+  "author": {
+    "name": "Maciej Twaróg",
+    "url": "https://github.com/maciekt07"
+  },
+  "private": true,
+  "type": "module",
+  "homepage": "https://react-cool-todo-app.netlify.app/",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/maciekt07/TodoApp.git"
+  },
   "license": "MIT",
   "scripts": {
-    "prettify": "prettier -l --write \"**/*.js\"",
-    "test": "jest",
-    "dev": "nodemon -L src/index.js"
+    "dev": "vite",
+    "dev:host": "vite --host",
+    "test": "vitest",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "prettier": "prettier --write \"**/*.{ts,js,mjs,tsx,md,json,html,css}\"",
+    "format": "npm run lint:fix && npm run prettier",
+    "generate-splash": "node scripts/generateSplashScreens.mjs && prettier --write index.html",
+    "generate-splash:cleanup": "node scripts/generateSplashScreens.mjs --mode=cleanup && prettier --write index.html",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "preview:host": "vite preview --host",
+    "prepare": "husky"
   },
   "dependencies": {
-    "express": "^4.18.2",
-    "mysql2": "^2.3.3",
-    "sqlite3": "^5.1.2",
-    "uuid": "^9.0.0",
-    "wait-port": "^1.0.4"
-  },
-  "resolutions": {
-    "ansi-regex": "5.0.1"
-  },
-  "prettier": {
-    "trailingComma": "all",
-    "tabWidth": 4,
-    "useTabs": false,
-    "semi": true,
-    "singleQuote": true
+    "@emotion/css": "^11.13.5",
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.0",
+    "@mui/icons-material": "^6.4.8",
+    "@mui/material": "^6.4.8",
+    "emoji-picker-react": "^4.12.2",
+    "lz-string": "^1.5.0",
+    "ntc-ts": "^0.0.8",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "react-fast-marquee": "^1.6.5",
+    "react-hot-toast": "^2.5.2",
+    "react-qr-code": "^2.0.15",
+    "react-router-dom": "^7.3.0",
+    "react-spring-bottom-sheet": "^3.4.1"
   },
   "devDependencies": {
-    "jest": "^29.3.1",
-    "nodemon": "^2.0.20",
-    "prettier": "^2.7.1"
+    "@eslint/js": "^9.22.0",
+    "@types/react": "^19.0.11",
+    "@types/react-dom": "^19.0.4",
+    "@typescript-eslint/eslint-plugin": "^8.26.1",
+    "@typescript-eslint/parser": "^8.26.1",
+    "@vitejs/plugin-react": "^4.3.4",
+    "eslint": "^9.22.0",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "eslint-plugin-react-refresh": "^0.4.19",
+    "globals": "^16.0.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^15.5.0",
+    "prettier": "^3.5.3",
+    "puppeteer": "^24.4.0",
+    "typescript": "^5.8.2",
+    "typescript-eslint": "^8.26.1",
+    "vite": "^6.2.2",
+    "vite-plugin-pwa": "^0.21.1",
+    "vite-plugin-qrcode": "^0.2.4",
+    "vitest": "^3.0.9"
+  },
+  "overrides": {
+    "react-spring-bottom-sheet": {
+      "react": "19.0.0"
+    }
+  },
+  "lint-staged": {
+    "**/*.{ts,tsx,js,mjs,md,json,html,css}": "npm run format"
   }
 }
