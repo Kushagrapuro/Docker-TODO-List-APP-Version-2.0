@@ -1,3 +1,4 @@
-## Todo List Version 1
+## Todo List Version 2
 
-The Run Command: docker compose up -d --build
+The Run Command: npm run dev
+
